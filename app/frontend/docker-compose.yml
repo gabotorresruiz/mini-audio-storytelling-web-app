@@ -1,0 +1,19 @@
+services:
+  frontend:
+    container_name: next-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.production
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - api-network
+
+networks:
+  api-network:
+    driver: bridge
