@@ -2,25 +2,16 @@ import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
 import path from 'path'
 import fs from 'fs'
+import { Database } from '../types'
 
-interface Database {
-  users: {
-    id: string
-    firstName: string
-    lastName: string
-    email: string
-    password: string
-  }[]
-}
+const dbPath: string = path.join(__dirname, '..', '..', 'data', 'db.json')
 
-const dbPath = path.join(__dirname, '..', '..', 'data', 'db.json')
-
-const dataDir = path.join(__dirname, '..', '..', 'data')
+const dataDir: string = path.join(__dirname, '..', '..', 'data')
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir)
 
 let db: Low<Database> | null = null
 
-const getDbInstance = async (): Promise<Low<Database>> => {
+const getDbInstance: () => Promise<Low<Database>> = async (): Promise<Low<Database>> => {
   if (!db) {
     const adapter = new JSONFile<Database>(dbPath)
 
@@ -29,7 +20,7 @@ const getDbInstance = async (): Promise<Low<Database>> => {
     await db.read()
     await db.write()
 
-    console.log('Database initialized with Lowdb')
+    console.log('Database initialized')
   }
 
   return db

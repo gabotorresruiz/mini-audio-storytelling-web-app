@@ -1,38 +1,22 @@
 import axios from 'axios'
 import { freesoundConfig } from '../config'
+import { FreesoundAudioFile, FreesoundResponse } from '../types'
 
-interface FreesoundAudioFile {
-  id: number
-  name: string
-  previews: {
-    'preview-hq-mp3': string
-  }
-  download: string
-  description: string
-}
-
-interface FreesoundResponse {
-  results: FreesoundAudioFile[]
-}
-
-export const getAudioFiles = async (
+export const getAudioFiles: (query?: string) => Promise<FreesoundAudioFile[]> = async (
   query: string = 'erotica'
 ): Promise<FreesoundAudioFile[]> => {
   try {
-    const response = await axios.get<FreesoundResponse>(
-      `${freesoundConfig.baseUrl}/search/text/`,
-      {
-        headers: {
-          Authorization: `Token ${freesoundConfig.apiKey}`,
-        },
-        params: {
-          query,
-          page_size: 10,
-          fields:
-            'id,name,previews,description,bookmark,download,duration,images',
-        },
-      }
-    )
+    const response = await axios.get<FreesoundResponse>(`${freesoundConfig.baseUrl}/search/text/`, {
+      timeout: 15000,
+      headers: {
+        Authorization: `Token ${freesoundConfig.apiKey}`,
+      },
+      params: {
+        query,
+        page_size: 9,
+        fields: 'id,name,previews,description,bookmark,download,duration,images',
+      },
+    })
 
     return response.data.results
   } catch (error) {

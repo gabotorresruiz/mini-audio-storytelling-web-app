@@ -2,13 +2,11 @@ import express from 'express'
 import cors from 'cors'
 import { audioRoutes, authRoutes } from './routes'
 
-const app = express()
+const app: express.Application = express()
 
-// Middleware
 app.use(cors())
 app.use(express.json())
 
-// Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/audios', audioRoutes)
 
