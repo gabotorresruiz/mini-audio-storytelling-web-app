@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: express-api
     ports:
-      - "8000:8000"
+      - '8000:8000'
     networks:
       - app-network
 
@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile
     container_name: next-app
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
       NODE_ENV: production
       NEXTAUTH_URL: http://localhost:3000
