@@ -52,11 +52,15 @@ This repository contains two main components:
 1. Clone the repository:
 
    ```bash
-   git clone git@github.com:gabotorresruiz/mini-audio-storytelling-web-app.git
-   cd mini-audio-storytelling-web-app
+   git clone https://github.com/gabotorresruiz/mini-audio-storytelling-web-app.git
    ```
 
-2. Install dependencies for both backend and frontend:
+2. Go to the app folder:
+    ```
+    cd mini-audio-storytelling-web-app
+    ```
+
+3. Install dependencies for both backend and frontend:
 
    ```bash
    # Backend
@@ -68,11 +72,11 @@ This repository contains two main components:
    npm install
    ```
 
-3. Create environment file for the backend application (`.env`). Refer to `.env.default`
+4. Create environment file for the backend application (`.env`). Refer to `.env.default`
 
-4. Create environment file for the frontend application (`.env.production`). Refer to `.env.default`
+5. Create environment file for the frontend application (`.env.production`). Refer to `.env.default`
 
-5. Add the Freesound API Key (`FREESOUND_API_KEY`) to `app/backend/.env`:
+6. Add the Freesound API Key (`FREESOUND_API_KEY`) to `app/backend/.env`:
   
     ```
     FREESOUND_API_KEY=<api_key>
@@ -82,13 +86,13 @@ This repository contains two main components:
 
     After you create your account, you should be able to see the API Key provided by Freesound.
 
-5. Start the application from the root:
+7. Start the application from the root of the project:
 
    ```bash
    docker compose up -d --build
    ```
 
-6. That's it! Now you can go to http://localhost:3000 and see the app up and running ;)
+8. That's it! Now you can go to http://localhost:3000 and see the app up and running ;)
 
 ---
 
