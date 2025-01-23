@@ -158,7 +158,7 @@ This repository contains two main components:
 
 ### Frontend
 
-- **Authentication**: `next-auth` simplifies user session management and integrates well with third-party providers.
+- **Authentication**: `next-auth` simplifies user session management.
 - **Folder Structure**:
   ```
   frontend/
