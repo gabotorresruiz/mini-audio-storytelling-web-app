@@ -6,13 +6,6 @@ services:
     container_name: express-api
     ports:
       - "8000:8000"
-    environment:
-      NODE_ENV: production
-      PORT: 8000
-      FREESOUND_BASE_URL: https://freesound.org/apiv2
-      FREESOUND_API_KEY: cYQ88NfzyssE2vYhF2CwjphybtXZ7VJnckoaTSUi
-      JWT_SECRET: e06d033611e3102b5910372ab11a7721da3ba5ece7aff52fefa40db6943b4081
-      JWT_EXPIRES_IN: 1h
     networks:
       - app-network
 
@@ -26,7 +19,7 @@ services:
     environment:
       NODE_ENV: production
       NEXTAUTH_URL: http://localhost:3000
-      NEXTAUTH_SECRET: e06d033611e3102b5910372ab11a7721da3ba5ece7aff52fefa40db6943b4081
+      NEXTAUTH_SECRET: super_secret_jwt
       NEXT_SERVER_API_URL: http://host.docker.internal:8000/api
       NEXT_PUBLIC_API_URL: http://localhost:8000/api
     networks:

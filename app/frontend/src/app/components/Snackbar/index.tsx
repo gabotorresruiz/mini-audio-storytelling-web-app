@@ -15,7 +15,7 @@ const Snackbar: FC = (): ReactElement => {
       open={state.open}
       autoHideDuration={4000}
       onClose={handleClose}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
     >
       <Alert
         onClose={handleClose}
