@@ -72,7 +72,7 @@ This repository contains two main components:
 
 4. Create environment file for the frontend application (`.env.production`). Refer to `.env.default`
 
-5. Add the Freesound API Key (`FREESOUND_API_KEY`) to `app/backend/.env.default`:
+5. Add the Freesound API Key (`FREESOUND_API_KEY`) to `app/backend/.env`:
   
     ```
     FREESOUND_API_KEY=<api_key>
